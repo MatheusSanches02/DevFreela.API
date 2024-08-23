@@ -1,6 +1,8 @@
 using DevFreela.API.ExceptionHandler;
 using DevFreela.API.Models;
+using DevFreela.API.Persistence;
 using DevFreela.API.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +12,11 @@ builder.Services.Configure<FreelancerTotalCostingConfig>(
     builder.Configuration.GetSection("FreelanceTotalCostConfig")
 );
 
-builder.Services.AddSingleton<IConfigService, ConfigService>(); // Mesma instancia em toda  aplicação, mantem a mesma instancia durante toda vida
-//builder.Services.AddScoped<IConfigService, ConfigService>(); // É utilizada uma instancia pra cada requisição  
+//builder.Services.AddSingleton<IConfigService, ConfigService>(); // Mesma instancia em toda  aplicação, mantem a mesma instancia durante toda vida
+builder.Services.AddScoped<IConfigService, ConfigService>(); // É utilizada uma instancia pra cada requisição  
 //builder.Services.AddTransient<IConfigService, ConfigService>(); // Utilizada uma instancia por uso (objetos diferentes na requisição)
+
+builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
 
 builder.Services.AddExceptionHandler<APIExceptionHandler>();
 builder.Services.AddProblemDetails();

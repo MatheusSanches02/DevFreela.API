@@ -1,4 +1,5 @@
 ﻿using DevFreela.API.Models;
+using DevFreela.API.Persistence;
 using DevFreela.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,21 +11,32 @@ namespace DevFreela.API.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly FreelancerTotalCostingConfig _config;
-        private readonly IConfigService _configService;
-        public ProjectsController(
-            IOptions<FreelancerTotalCostingConfig> options,
-            IConfigService configService
-            ) 
+        //private readonly FreelancerTotalCostingConfig _config;
+        //private readonly IConfigService _configService;
+        //public ProjectsController(
+        //    IOptions<FreelancerTotalCostingConfig> options,
+        //    IConfigService configService
+        //    ) 
+        //{
+        //    _config = options.Value;
+        //    _configService = configService;
+        //}
+
+        private readonly DevFreelaDbContext _context;
+
+        public ProjectsController(DevFreelaDbContext context)
         {
-            _config = options.Value;
-            _configService = configService;
+            _context = context;
         }
 
         [HttpGet]
         public IActionResult Get(string search = "")
         {
-            return Ok(_configService.GetValue());
+            //return Ok(_configService.GetValue());
+
+            // Configurações personalizadas do appsettings
+
+            return Ok();
         }
 
         [HttpGet("{id}")]
@@ -36,11 +48,15 @@ namespace DevFreela.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateProjectInputModel model)
         {
-            if(model.TotalCost < _config.Minimum ||  model.TotalCost > _config.Maximum)
-            {
-                return BadRequest("Custo fora dos limites");
-            }
-            return CreatedAtAction(nameof(GetById), new { id = 1}, model);
+            //if(model.TotalCost < _config.Minimum ||  model.TotalCost > _config.Maximum)
+            //{
+            //    return BadRequest("Custo fora dos limites");
+            //}
+            //return CreatedAtAction(nameof(GetById), new { id = 1}, model);
+
+            //Funciona para gerenciamento de exceções
+
+            return CreatedAtAction(nameof(GetById), new { id = 1 }, model);
         }
 
         [HttpPut("{id}")]
