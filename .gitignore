@@ -1,1 +1,62 @@
-﻿/DevFreela.API/DevFreela.API.csproj
+﻿*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+
+# Fleet
+.fleet/
+
+# Code Rush
+.cr/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+/DevFreela.API/obj/Debug/net8.0/ref/DevFreela.API.dll
+/DevFreela.API/obj/Debug/net8.0/refint/DevFreela.API.dll
+/.vs/DevFreela/DesignTimeBuild/.dtbcache.v2
+/.vs/DevFreela/FileContentIndex/280af7d6-079b-438c-9c7d-f0a7e2d4a7db.vsidx
+/.vs/DevFreela/FileContentIndex/37a2c8e5-bce3-4855-97aa-11ced32136d5.vsidx
+/.vs/DevFreela/FileContentIndex/6756e851-f55e-4e3c-8eec-3688343be113.vsidx
+/.vs/DevFreela/FileContentIndex/807bf158-f894-48ed-ac17-99fece7639a9.vsidx
+/.vs/DevFreela/FileContentIndex/bf64540c-fce3-4ca6-8d46-a2b6121c9276.vsidx
+/.vs/DevFreela/v17/.futdcache.v2
+/.vs/DevFreela/v17/.suo
+/.vs/DevFreela/v17/DocumentLayout.json
+/.vs/ProjectEvaluation/devfreela.metadata.v7.bin
+/.vs/ProjectEvaluation/devfreela.projects.v7.bin
+/DevFreela.API/bin/Debug/net8.0/appsettings.json
+/DevFreela.API/bin/Debug/net8.0/DevFreela.API.deps.json
+/DevFreela.API/bin/Debug/net8.0/DevFreela.API.dll
+/DevFreela.API/bin/Debug/net8.0/DevFreela.API.exe
+/DevFreela.API/bin/Debug/net8.0/DevFreela.API.runtimeconfig.json
+/DevFreela.API/bin/Debug/net8.0/DevFreela.API.pdb
