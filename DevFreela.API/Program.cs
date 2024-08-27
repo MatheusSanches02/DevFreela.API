@@ -16,7 +16,12 @@ builder.Services.Configure<FreelancerTotalCostingConfig>(
 builder.Services.AddScoped<IConfigService, ConfigService>(); // É utilizada uma instancia pra cada requisição  
 //builder.Services.AddTransient<IConfigService, ConfigService>(); // Utilizada uma instancia por uso (objetos diferentes na requisição)
 
-builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
+//builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
+
+var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+
+builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseSqlServer(connectionString));
+
 
 builder.Services.AddExceptionHandler<APIExceptionHandler>();
 builder.Services.AddProblemDetails();
