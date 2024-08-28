@@ -1,7 +1,7 @@
-﻿using DevFreela.API.Entities;
+﻿using DevFreela.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DevFreela.API.Persistence
+namespace DevFreela.Infrastructure.Persistence
 {
     public class DevFreelaDbContext : DbContext
     {
@@ -54,7 +54,7 @@ namespace DevFreela.API.Persistence
 
                     e.HasMany(u => u.Skills)
                         .WithOne(s => s.User)
-                        .HasForeignKey(u => u.IdUser) // Pq não IdSkill? - Aula Configurando o EF Core
+                        .HasForeignKey(u => u.IdUser)
                         .OnDelete(DeleteBehavior.Restrict); 
 
                 });
